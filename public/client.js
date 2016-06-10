@@ -9,11 +9,17 @@ $(document).ready(function() {
          $('#createProject').click(function(){
           // console.log( 'in createProject success' );
           // console.log( response );
+        $('#clickProjectButton').empty(companyInfo);
           $('#clickProjectButton').append(companyInfo);
-          $('#clickProjectButton').append('<button id="assignStaff">Assign Staff</button>');
+          $('#clickProjectButton').append('<br><button id="assignStaff">Assign Staff</button>');
+
 
           $('#assignStaff').click(function() {
+            $('.employeeData').empty( response );
             $('.employeeData').append( response );
+            $('#remove').click(function () {
+              ('#clickProjectButton').remove();
+            });
           });
           // employeeData = data;
         }); // end click function
@@ -26,16 +32,16 @@ $(document).ready(function() {
        }); // end ajax request
 });//end document ready
 //creates random values for three requitment areas of project
-var projectPoints= "Front End Points: " + randomPoints(10, 60) + " Back End Points: " + randomPoints(10, 60) + " Logic Points: " + randomPoints(10, 60);
+var projectPoints= "<br> Front End Points: " + randomPoints(10, 60) + "<br> Back End Points: " + randomPoints(10, 60) + "<br> Logic Points: " + randomPoints(10, 60);
 //generates random point values
 function randomPoints(min, max) {
  return Math.floor(Math.random() * (max - min)) + min;
 }
 //array of potential companies
-var names= ["petSmart", "Target", "General Mills", "Kemps", "Disney", "Banana Mush Records", "Wet Bird Incorporated"];
+var names= ["Corgi Cuddlers", "More Seeds Less Bedtime Unlimited", "Cranky Bird Co.", "Kemps", "Disney", "Banana Mush Records", "Wet Bird Incorporated", "Feed Aesop Nonprofit", "Bird Seed Unlimited"];
 //picks a random company
 var companyName = names[Math.floor(Math.random()*names.length)];
 // display for the company name and requirements
-var companyInfo = "Company: " + companyName+" Project Requirements:  " + projectPoints;
+var companyInfo = "<h2>Company: </h2>" + companyName+ "<br> <h3>Project Requirements: </h3> " + projectPoints;
 
 console.log(companyInfo);
