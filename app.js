@@ -6,7 +6,7 @@ var path = require("path");
 app.use(express.static('public')); // allow use of public files
 
 var server = app.listen(process.env.PORT || 3000, function () {
-  console.log("listening on port");
+  console.log("listening on port 3000");
 } );//end of app.listen
 
 app.get('/', function (req, res) {
