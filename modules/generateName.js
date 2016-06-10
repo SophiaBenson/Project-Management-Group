@@ -4,7 +4,7 @@ var randomizerNames = names[Math.floor(Math.random()*names.length)]; // generate
 
 
 var generateName = function(){
-  return (randomizerNames);
+  return randomizerNames;
 };//end generateName function
 
 generateName();
